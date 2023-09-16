@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS fit-react_db;
+CREATE DATABASE fit-react_db;
