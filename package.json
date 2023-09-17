@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,14 +20,5 @@
   "bugs": {
     "url": "https://github.com/jahnathanexantus/friends-in-training-react/issues"
   },
-  "homepage": "https://github.com/jahnathanexantus/friends-in-training-react#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "connect-session-sequelize": "^7.1.7",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "mysql2": "^3.6.1",
-    "sequelize": "^6.33.0"
-  }
+  "homepage": "https://github.com/jahnathanexantus/friends-in-training-react#readme"
 }
