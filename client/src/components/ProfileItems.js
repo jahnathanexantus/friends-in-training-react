@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Profile = () => {
-  const [data, setData] = useState({
-    firstName:'',
-    lastName:'',
-    gender:'',
-    state:'',
-    city:'',
-    availability:'',
-  });
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     profileData();
@@ -33,12 +26,13 @@ const Profile = () => {
     }
   };
   return (
+    
     <div className="rela-block profile-container">
       <div className="rela-block profile-card">
         {data.map((item, index) => (
           <div key={index}>
             <div className="rela-block user-name" id="user_name">
-              {item.firstName} {item.lastName}
+              {item.first_name} {item.last_name}
             </div>
             <div className="rela-block user-desc" id="user_description">
               <ul className="profile-list">
