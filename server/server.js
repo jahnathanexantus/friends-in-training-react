@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const routes = require('./routes');
+// const cors = require('cors');
 
 
 const sequelize = require('./config/connection');
@@ -23,7 +24,7 @@ const sess = {
 };
 
 app.use(session(sess));
-
+// app.use(cors());
 
 
 app.use(express.json());

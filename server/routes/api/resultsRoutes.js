@@ -4,14 +4,15 @@ const { User } = require('../../models');
 // route to display all users in database at api/results
 router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll();
+    const userData = await User.findAll({ attributes: { exclude: ['password'] }});
     const users = userData.map((user) => user.get({ plain: true }));
+    res.send(users)
     // Pass serialized data and session flag into template
-    res.render('userResults', { 
-      layout: 'main',
-      users, 
-      logged_in: req.session.logged_in 
-    });
+    // res.render('userResults', { 
+    //   layout: 'main',
+    //   users, 
+    //   logged_in: req.session.logged_in 
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,11 +27,12 @@ router.get('/:id', async (req, res) => {
       attributes: { exclude: ['password'] }
     });
     const users = userData.get({ plain: true });
-    res.render('profile', {
-      users,
-      logged_in: req.session.logged_in 
+    res.send(users)
+    // res.render('profile', {
+    //   users,
+    //   logged_in: req.session.logged_in 
 
-    });
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
