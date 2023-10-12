@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from './pages/home/Home'
 import Profile from "./pages/profile/Profile";
-import ProfileItem from "../src/components/ProfileItems"
+import ProfileItem from "../src/components/ProfileItems";
 import './App.css';
 
 function App() {

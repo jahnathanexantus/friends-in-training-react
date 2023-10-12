@@ -1,0 +1,23 @@
+.rela-block.profile-card {
+  position: relative;
+}
+
+.card-profiles {
+   /* position: absolute; */
+  /* top: 50%;
+  left: 50%;  */
+  border: 3px solid black;
+  width: 400px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.profile-list{
+    
+    list-style: none;
+}
+
+.rela-block.user-name{
+    display: flex;
+    justify-content: center;
+
+}

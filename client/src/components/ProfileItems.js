@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import profileItem from './profileItem.css'
+
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -30,7 +32,7 @@ const Profile = () => {
     <div className="rela-block profile-container">
       <div className="rela-block profile-card">
         {data.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="card-profiles">
             <div className="rela-block user-name" id="user_name">
               {item.first_name} {item.last_name}
             </div>
@@ -39,7 +41,7 @@ const Profile = () => {
                 <li>{item.city}</li>
                 <li>{item.gender}</li>
                 <li>{item.fitness_level}</li>
-                <li>{item.gym?.name}</li>
+                {/* <li>{item.gym?.name}</li> */}
                 <li>{item.availability}</li>
               </ul>
             </div>

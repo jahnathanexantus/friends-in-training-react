@@ -1,5 +1,7 @@
 .header{
-    position: sticky;
-    top:0;
-    z-index: 100;
+    list-style: none;
+    position:absolute;
+    right:50%;
+    margin-right:155px;
+    margin-top:220px;
 }
