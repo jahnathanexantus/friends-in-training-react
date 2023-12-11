@@ -33,7 +33,7 @@ const SignUp = () => {
       });
         
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace("/profile");
         alert(
           "You are signed up and logged in. Remember your password, please."
         );

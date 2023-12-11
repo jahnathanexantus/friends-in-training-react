@@ -28,7 +28,10 @@ router.post("/", async (req, res) => {
         
         res.status(200).json(userData);
       });
-      
+      // if (req.session.logged_in) {
+      //   res.redirect('/');
+      //   return;
+      // }
     } catch (err) {
       res.status(400).json(err);
     }
