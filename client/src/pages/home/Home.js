@@ -5,11 +5,13 @@ import SignUp from "../../components/SignUp";
 import backgroundImage from "../../assets/images/login_bg.jpg";
 import "./home.css";
 
+
 const Home = () => {
   // Define state variables for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showSignUp, setShowSignUp] = useState(false);
+  
   
 
   // Function to handle form submission
@@ -88,13 +90,16 @@ const Home = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Don't have an account?</p>
-                        <button
+                        {/* <button
                           type="button"
                           className="btn btn-outline-danger"
                           onClick={() => setShowSignUp(!showSignUp)} // Toggle the state
                         >
                           Get Started
-                        </button>
+                        </button> */}
+                        <div className="modal-body">
+      {showSignUp && <SignUp />}
+      </div>
                       </div>
                     </form>
                   </div>
@@ -115,9 +120,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="modal-body">
+      {/* <div className="modal-body">
       {showSignUp && <SignUp />}
-      </div>
+      </div> */}
     </section>
   );
 };

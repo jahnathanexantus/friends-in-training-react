@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import profileItem from './profileItem.css'
+// import profileItem from './profileItem.css'
 
 
 const Profile = () => {

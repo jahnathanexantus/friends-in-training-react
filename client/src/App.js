@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/home/Home'
 import Profile from "./pages/profile/Profile";
 import ProfileItem from "../src/components/ProfileItems";
