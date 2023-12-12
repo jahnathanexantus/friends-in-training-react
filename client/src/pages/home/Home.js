@@ -98,8 +98,8 @@ const Home = () => {
                           Get Started
                         </button> */}
                         <div className="modal-body">
-      {showSignUp && <SignUp />}
-      </div>
+                         { <SignUp />}
+                        </div>
                       </div>
                     </form>
                   </div>
