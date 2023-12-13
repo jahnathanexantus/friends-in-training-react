@@ -20,7 +20,7 @@ const Profile = () => {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
-      console.log("this is the result output",result)
+      console.log("result:",result)
       setData(result);
      
     } catch (error) {

@@ -10,7 +10,6 @@ const Home = () => {
   // Define state variables for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showSignUp, setShowSignUp] = useState(false);
   
   
 
@@ -90,13 +89,6 @@ const Home = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Don't have an account?</p>
-                        {/* <button
-                          type="button"
-                          className="btn btn-outline-danger"
-                          onClick={() => setShowSignUp(!showSignUp)} // Toggle the state
-                        >
-                          Get Started
-                        </button> */}
                         <div className="modal-body">
                          { <SignUp />}
                         </div>
