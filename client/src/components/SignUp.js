@@ -64,6 +64,7 @@ const SignUp = () => {
       <Modal
         show={show}
         onHide={handleClose}
+        size="lg"
         backdrop="static"
         keyboard={false}
       >
