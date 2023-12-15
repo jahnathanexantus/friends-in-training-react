@@ -12,25 +12,35 @@ router.get('/', withAuth, async (req, res) => {
       order: [['id', 'ASC']],
     });
     const users = userData.map((user) => user.get({ plain: true }));
-    res.render('userResults', {
-      users,
-      logged_in: req.session.logged_in,
-    });
+    res.send(users)
+    // res.render('userResults', {
+    //   users,
+    //   logged_in: req.session.logged_in,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // route to send visitor to login page at first UNLESS logged in
+// router.get('/login', (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   // res.render('login', {
+//   //   layout: 'landing',
+//   // });
+// });
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
 
-  res.render('login', {
-    layout: 'landing',
-  });
+  // Replace rendering with JSON response
+  res.json({ message: 'Login page' });
 });
 
 module.exports = router;
