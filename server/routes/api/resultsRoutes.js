@@ -7,12 +7,6 @@ router.get('/', async (req, res) => {
     const userData = await User.findAll({ attributes: { exclude: ['password'] }});
     const users = userData.map((user) => user.get({ plain: true }));
     res.send(users)
-    // Pass serialized data and session flag into template
-    // res.render('userResults', { 
-    //   layout: 'main',
-    //   users, 
-    //   logged_in: req.session.logged_in 
-    // });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,11 +22,6 @@ router.get('/:id', async (req, res) => {
     });
     const users = userData.get({ plain: true });
     res.send(users)
-    // res.render('profile', {
-    //   users,
-    //   logged_in: req.session.logged_in 
-
-    // });
   } catch (err) {
     res.status(500).json(err);
   }

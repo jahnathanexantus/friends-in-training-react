@@ -13,10 +13,6 @@ router.get('/', withAuth, async (req, res) => {
     });
     const users = userData.map((user) => user.get({ plain: true }));
     res.send(users)
-    // res.render('userResults', {
-    //   users,
-    //   logged_in: req.session.logged_in,
-    // });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,10 +24,6 @@ router.get('/', withAuth, async (req, res) => {
 //     res.redirect('/');
 //     return;
 //   }
-
-//   // res.render('login', {
-//   //   layout: 'landing',
-//   // });
 // });
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {

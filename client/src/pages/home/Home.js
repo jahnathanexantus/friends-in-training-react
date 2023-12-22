@@ -27,6 +27,7 @@ const Home = () => {
 
       if (response.ok) {
         // Redirect to the profile page upon successful login
+        alert("You have sucessfully signed in ")
         window.location.replace("/Profile");
       } else {
         alert("Failed to log in");
