@@ -5,8 +5,8 @@ const { User } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({ attributes: { exclude: ['password'] }});
-    const users = userData.map((user) => user.get({ plain: true }));
-    res.send(users)
+    // const users = userData.map((user) => user.get({ plain: true }));
+    res.send(userData)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -20,8 +20,8 @@ router.get('/:id', async (req, res) => {
       include: [{ all: true, nested: true }],
       attributes: { exclude: ['password'] }
     });
-    const users = userData.get({ plain: true });
-    res.send(users)
+    // const users = userData.get({ plain: true });
+    res.send(userData)
   } catch (err) {
     res.status(500).json(err);
   }

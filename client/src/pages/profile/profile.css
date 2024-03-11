@@ -6,7 +6,6 @@
     margin-top:220px;
 } */
 
-
 /* .header-container{
     display: flex;
     justify-content: space-between;
@@ -16,19 +15,21 @@
     
   } */
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 255, 55);
+  height: 100px;
+  position: fixed;
+  width: 100%;
+}
 
-  .nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(0, 255, 55);
-    height: 100px;
-    position: fixed;
-    width: 100%;
-  }
-
-  .profile-container{
-    flex: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: bisque;
+  height: 40px;
+  width: 700px; */
+}
