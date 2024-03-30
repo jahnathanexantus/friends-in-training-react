@@ -46,10 +46,7 @@ const Profile = () => {
                 <li>
                   {item.city}, {item.state}
                 </li>
-                {/* <li>{item.gender}</li> */}
                 <li>{item.fitness_level}</li>
-                {/* <li>{item.gym?.name}</li> */}
-                {/* <li>{item.availability}</li> */}
               </ul>
             </div>
           </div>

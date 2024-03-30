@@ -1,38 +1,14 @@
-/* .rela-block.profile-card {
-  position: relative;
-}
-
-.card-profiles {
-  border: 3px solid black;
-  width: 400px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.profile-list {
-  list-style: none;
-}
-
-.rela-block.user-name {
-  display: flex;
-  justify-content: center;
-} */
 .profile-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-image: url("../assets/images/seamless-dumbbell-pattern.jpg");
 }
-.profile-card {
-  /* height: 600px;
-  overflow-y: scroll; */
-}
+
 .profile-list {
   list-style: none;
 }
 .card-profiles {
-  /* margin: 100vh 0; */
-  /* height: 200px;
-  overflow-y: scroll; */
   text-align: center;
   height: 321px;
   width: 400px;
@@ -42,9 +18,7 @@
   background-color: #efefef;
   border-radius: 20px;
 }
-.profile-list {
-  /* text-align: center; */
-}
+
 .placeHolder-pic {
   height: 200px;
   width: 200px;
