@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar";
 import ProfileItem from "../../components/ProfileItems";
-import profile from "./profile.css";
+import "./profile.css";
 
 const Profile = () => {
   // const [data,setData]=useState([])
@@ -12,7 +12,7 @@ const Profile = () => {
 
   // const individualProfile = async()=>{
   //   try{
-  //     const response = await fetch('/api/profile',{
+  //     const response = await fetch('/api/profile/',{
   //       method: 'GET',
   //       headers:{'content-Type':'application/json'}
   //     })
@@ -39,13 +39,3 @@ const Profile = () => {
 };
 
 export default Profile;
-{
-  /* <div className="header">
-    <NavBar/>
-    </div>
-    
-    <div className="body-content">
-      <ProfileItem/>
-    </div>
-  </div> */
-}

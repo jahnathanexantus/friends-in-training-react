@@ -15,7 +15,7 @@
     
   } */
 
-.nav {
+/* .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,13 +23,10 @@
   height: 100px;
   position: fixed;
   width: 100%;
-}
+} */
 
-.profile-container {
+/* .profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: bisque;
-  height: 40px;
-  width: 700px; */
-}
+} */
