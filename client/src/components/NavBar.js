@@ -1,11 +1,26 @@
 import React from "react";
 import Logo from "../assets/images/FITlogo.png";
-import { Link, Route, Routes } from "react-router-dom";
-import ProfileItem from "./ProfileItems";
-import { profile } from "../pages/profile/Profile";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const NavBar = () => {
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("/logout", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+      });
+      if (response.ok) {
+        window.location.href = "/";
+      } else {
+        throw new Error("Logout failed");
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Handle logout error
+    }
+  };
+
   return (
     <div className="nav">
       <div className="logo-container">
@@ -19,7 +34,9 @@ const NavBar = () => {
         <Link to="/profileItem">
           <button className="button">Matches</button>
         </Link>
-        <button className="button">Logout</button>
+        <button className="button" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

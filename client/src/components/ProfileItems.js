@@ -39,7 +39,9 @@ const Profile = () => {
               />
             </a>
             <div className="rela-block user-name" id="user_name">
-              {item.first_name} {item.last_name}
+              <h3>
+                {item.first_name} {item.last_name}
+              </h3>
             </div>
             <div className="rela-block user-desc" id="user_description">
               <ul className="profile-list">

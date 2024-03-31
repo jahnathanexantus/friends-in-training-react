@@ -10,10 +10,10 @@
 }
 .card-profiles {
   text-align: center;
-  height: 321px;
+  height: 400px;
   width: 400px;
   border: 1px solid black;
-  margin: 100vh 0;
+  margin: 50vh 0;
   z-index: 1;
   background-color: #efefef;
   border-radius: 20px;
@@ -22,4 +22,10 @@
 .placeHolder-pic {
   height: 200px;
   width: 200px;
+}
+.user-desc {
+  text-align: center;
+}
+.profile-list {
+  margin-bottom: 5px;
 }

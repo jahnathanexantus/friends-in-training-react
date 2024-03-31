@@ -1,59 +1,64 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
+const session = require("express-session");
 
 // route to create new user
 // need to link this with sign up modal still
 router.post("/", async (req, res) => {
-  console.log('creating user');
-  console.log('this is it right here',req.body)
+  console.log("creating user");
+  console.log(req.body);
+
   // Creating a new instance of user
   try {
-      const userData = await User.create({
-        first_name: req.body.firstName,
-        last_name: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password,
-        city: req.body.city,
-        state: req.body.state,
-        fitness_level: req.body.fitnessLevel,
-        availability: req.body.availability,
-        gender: req.body.gender,
-        gym_id: req.body.gymId
-      });
-      
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.email = userData.email;
-        req.session.logged_in = true;
-        
-        res.status(200).json(userData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
+    const userData = await User.create({
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      email: req.body.email,
+      password: req.body.password,
+      city: req.body.city,
+      state: req.body.state,
+      fitness_level: req.body.fitnessLevel,
+      availability: req.body.availability,
+      gender: req.body.gender,
+      gym_id: req.body.gymId,
+    });
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.email = userData.email;
+      req.session.logged_in = true;
+      console.log("this is the session id for the post", req.session.id);
+      console.log("this is the session email for the post", req.session.email);
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // user login route
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
+  console.log("this is the session id ", req.session.user_id);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
     const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.email = userData.email;
       req.session.logged_in = true;
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -61,7 +66,7 @@ router.post('/login', async (req, res) => {
 });
 
 // user logout route
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

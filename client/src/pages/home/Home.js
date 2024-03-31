@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import Logo from "../../assets/images/FITlogo.png";
 import SignUp from "../../components/SignUp";
-// import Profile from "../profile/Profile";
 import backgroundImage from "../../assets/images/login_bg.jpg";
 import "./home.css";
-
 
 const Home = () => {
   // Define state variables for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
-  
 
   // Function to handle form submission
   const loginFormHandler = async (event) => {
@@ -27,7 +23,7 @@ const Home = () => {
 
       if (response.ok) {
         // Redirect to the profile page upon successful login
-        alert("You have sucessfully signed in ")
+        alert("You have sucessfully signed in ");
         window.location.replace("/Profile");
       } else {
         alert("Failed to log in");
@@ -39,7 +35,11 @@ const Home = () => {
 
   return (
     <section className="gradient-form ">
-      <img className="background" src={backgroundImage} alt="background-image" />
+      <img
+        className="background"
+        src={backgroundImage}
+        alt="background-image"
+      />
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-xl-10">
@@ -48,7 +48,7 @@ const Home = () => {
                 <div className="col-lg-6">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center">
-                      <img id="logo"src={Logo} alt="logo" />
+                      <img id="logo" src={Logo} alt="logo" />
                       <h4 className="mt-1 mb-5 pb-1">Welcome to F.I.T</h4>
                     </div>
 
@@ -90,14 +90,12 @@ const Home = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Don't have an account?</p>
-                        <div className="modal-body">
-                         { <SignUp />}
-                        </div>
+                        <div className="modal-body">{<SignUp />}</div>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div className=" side-2 col-lg-6 d-flex align-items-center gradient-custom-2">
                   <div className=" px-3 py-4 p-md-5 mx-md-4">
                     <h2 className="mb-0">Friends In Fitness</h2>
                     <h5 className="mb-4">More than just gym partners.</h5>
