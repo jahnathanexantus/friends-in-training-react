@@ -27,10 +27,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-card">
+    <div className="profile-box">
+      <div className="pro-card">
         {userData && (
-          <div className="card-profile">
+          <div className="card-pro">
             <a href="#">
               <img
                 src={placeHold}
@@ -38,13 +38,13 @@ const Profile = () => {
                 className="placeHolder-pic"
               />
             </a>
-            <div className="rela-block user-name" id="user_name">
+            <div className="user-label" id="user_name">
               <h3>
                 {userData.first_name} {userData.last_name}
               </h3>
             </div>
-            <div className="rela-block user-desc" id="user_description">
-              <ul className="profile-list">
+            <div className="us-description" id="user_description">
+              <ul className="pro-list">
                 <li>
                   {userData.city}, {userData.state}
                 </li>

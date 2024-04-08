@@ -1,1 +1,33 @@
+.profile-box {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Optional: Adjust height as needed */
+  background-image: url(../../assets/images/seamless-dumbbell-pattern.jpg);
+}
 
+.pro-card {
+  /* Add any additional styles to the container if needed */
+}
+
+.card-pro {
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  border: 1px solid black;
+  margin: 50vh 0;
+  z-index: 1;
+  background-color: #efefef;
+  border-radius: 20px;
+}
+
+.user-label,
+.us-description {
+  text-align: center;
+}
+
+.pro-list {
+  list-style: none;
+  padding: 0;
+}
