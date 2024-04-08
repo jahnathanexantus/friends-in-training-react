@@ -5,9 +5,6 @@ const session = require("express-session");
 // route to create new user
 // need to link this with sign up modal still
 router.post("/", async (req, res) => {
-  console.log("creating user");
-  console.log(req.body);
-
   try {
     const userData = await User.create({
       first_name: req.body.firstName,
@@ -26,8 +23,6 @@ router.post("/", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.email = userData.email;
       req.session.logged_in = true;
-      console.log("this is the session id for the post", req.session.id);
-      console.log("this is the session email for the post", req.session.email);
       res.status(200).json(userData);
     });
   } catch (err) {
@@ -53,7 +48,6 @@ router.post("/login", async (req, res) => {
     }
     req.session.save(() => {
       req.session.user_id = userData.id;
-      console.log("this is the session id ", req.session.user_id);
       req.session.email = userData.email;
       req.session.logged_in = true;
       res.json({ user: userData, message: "You are now logged in!" });

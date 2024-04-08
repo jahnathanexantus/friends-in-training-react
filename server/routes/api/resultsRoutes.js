@@ -4,7 +4,6 @@ const session = require("express-session");
 
 // route to display all users in database at api/results
 router.get("/", async (req, res) => {
-  console.log("this is who currently is using the app", req.session.email);
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },

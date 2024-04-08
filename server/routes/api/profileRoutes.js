@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 router.get("/profile", async (req, res) => {
-  console.log("this is who profile that is showing up", req.session.email);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       include: [{ all: true, nested: true }],

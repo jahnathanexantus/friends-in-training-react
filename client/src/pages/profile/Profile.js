@@ -19,7 +19,6 @@ const Profile = () => {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
-      console.log("this is the profile fetch", result);
       setUserData(result);
     } catch (error) {
       console.error("Error fetching data:", error);
