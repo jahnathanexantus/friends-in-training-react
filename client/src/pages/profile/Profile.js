@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ProfileItem from "../../components/ProfileItems";
+import placeHold from "../../assets/images/userplaceholder.png";
 import "./profile.css";
 
 const Profile = () => {
-  const [data, setData] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     individualProfile();
@@ -13,30 +13,46 @@ const Profile = () => {
     try {
       const response = await fetch("/api/profile/profile", {
         method: "GET",
-        headers: { "content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
       console.log("this is the profile fetch", result);
-      setData(result);
+      setUserData(result);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+
   return (
-    <div className="main">
-      {data.map((item, index) => (
-        <div key={index}>
-          <ul>
-            <li>{item.email}</li>
-            <li>{item.fitness_level}</li>
-          </ul>
-        </div>
-      ))}
-      <div className="profile-container">
-        <ProfileItem />
+    <div className="profile-container">
+      <div className="profile-card">
+        {userData && (
+          <div className="card-profile">
+            <a href="#">
+              <img
+                src={placeHold}
+                alt="placeholder"
+                className="placeHolder-pic"
+              />
+            </a>
+            <div className="rela-block user-name" id="user_name">
+              <h3>
+                {userData.first_name} {userData.last_name}
+              </h3>
+            </div>
+            <div className="rela-block user-desc" id="user_description">
+              <ul className="profile-list">
+                <li>
+                  {userData.city}, {userData.state}
+                </li>
+                <li>{userData.fitness_level}</li>
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
