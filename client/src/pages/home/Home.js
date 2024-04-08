@@ -5,15 +5,12 @@ import backgroundImage from "../../assets/images/login_bg.jpg";
 import "./home.css";
 
 const Home = () => {
-  // Define state variables for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Function to handle form submission
   const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    // Make the API request
     try {
       const response = await fetch("/api/users/login", {
         method: "POST",
@@ -22,7 +19,6 @@ const Home = () => {
       });
 
       if (response.ok) {
-        // Redirect to the profile page upon successful login
         alert("You have sucessfully signed in ");
         window.location.replace("/Profile");
       } else {
@@ -111,9 +107,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div className="modal-body">
-      {showSignUp && <SignUp />}
-      </div> */}
     </section>
   );
 };

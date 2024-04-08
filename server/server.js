@@ -20,7 +20,7 @@ const sess = {
   }),
 };
 
-app.use(cors()); // Use CORS middleware
+app.use(cors());
 app.use(session(sess));
 
 app.use(express.json());
