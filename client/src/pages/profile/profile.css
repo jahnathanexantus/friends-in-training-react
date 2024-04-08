@@ -3,12 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Optional: Adjust height as needed */
+  height: 100vh;
   background-image: url(../../assets/images/seamless-dumbbell-pattern.jpg);
-}
-
-.pro-card {
-  /* Add any additional styles to the container if needed */
 }
 
 .card-pro {
