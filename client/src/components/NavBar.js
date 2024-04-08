@@ -6,7 +6,7 @@ import "./navbar.css";
 const NavBar = () => {
   const handleLogout = async () => {
     try {
-      const response = await fetch("/logout", {
+      const response = await fetch("/api/users/logout", {
         method: "POST",
         headers: { "content-Type": "application/json" },
       });
