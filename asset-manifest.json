@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/fiends-in-training-react/static/css/main.07c191f9.css",
+    "main.js": "/fiends-in-training-react/static/js/main.a6f09941.js",
+    "static/media/login_bg.jpg": "/fiends-in-training-react/static/media/login_bg.6807be266d1788927a3f.jpg",
+    "static/media/seamless-dumbbell-pattern.jpg": "/fiends-in-training-react/static/media/seamless-dumbbell-pattern.f04e27f32bd6e7304c26.jpg",
+    "static/media/userplaceholder.png": "/fiends-in-training-react/static/media/userplaceholder.4d961b5597262cde6818.png",
+    "static/media/FITlogo.png": "/fiends-in-training-react/static/media/FITlogo.fbb1996ba5118e465f74.png",
+    "index.html": "/fiends-in-training-react/index.html",
+    "main.07c191f9.css.map": "/fiends-in-training-react/static/css/main.07c191f9.css.map",
+    "main.a6f09941.js.map": "/fiends-in-training-react/static/js/main.a6f09941.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07c191f9.css",
+    "static/js/main.a6f09941.js"
+  ]
+}
