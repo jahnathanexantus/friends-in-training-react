@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 const session = require("express-session");
+const jwt = require("jsonwebtoken");
 
 // route to create new user
 // need to link this with sign up modal still
@@ -30,30 +31,39 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Assuming your User model is imported properly
+
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
-      res
+      return res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
-      return;
     }
+
     const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
-      res
+      return res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
-      return;
     }
+    const token = jwt.sign({ email: userData.email }, process.env.JWT_SECRET, {
+      expiresIn: "1800s",
+    });
+    console.log("this is my token ", token);
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.email = userData.email;
       req.session.logged_in = true;
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.status(200).json({
+        message: "User Logged in Successfully",
+        token,
+      });
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 

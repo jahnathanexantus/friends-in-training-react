@@ -19,6 +19,9 @@ const Home = () => {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("token", data.token);
+        console.log("this is the token on the client side", data.token);
         alert("You have sucessfully signed in ");
         window.location.replace("/Profile");
       } else {

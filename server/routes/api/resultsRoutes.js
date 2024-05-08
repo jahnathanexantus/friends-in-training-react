@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 const session = require("express-session");
+const authenticateToken = require("../../utils/jwt");
 
 // route to display all users in database at api/results
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },

@@ -11,9 +11,14 @@ const Profile = () => {
 
   const profileData = async () => {
     try {
+      const token = localStorage.getItem("token");
+      console.log("this is the token for the result route", token);
       const response = await fetch("/api/results", {
         method: "GET",
-        headers: { "content-Type": "application/json" },
+        headers: {
+          "content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (!response.ok) {
