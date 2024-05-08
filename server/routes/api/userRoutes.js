@@ -20,12 +20,15 @@ router.post("/", async (req, res) => {
       gym_id: req.body.gymId,
     });
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.email = userData.email;
-      req.session.logged_in = true;
-      res.status(200).json(userData);
-    });
+    // Generate JWT token
+    const token = jwt.sign(
+      { userId: userData.id, email: userData.email }, // Payload
+      process.env.JWT_SECRET, // Secret key
+      { expiresIn: "1h" } // Expiry time
+    );
+    console.log("this the sign up page and here is the token", token);
+    // Send JWT token in response
+    res.status(200).json({ userData, token });
   } catch (err) {
     res.status(400).json(err);
   }
