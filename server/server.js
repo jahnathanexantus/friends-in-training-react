@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const routes = require("./routes");
 const cors = require("cors"); // Added CORS middleware
+// const authenticateToken = require("../server/utils/jwt");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -22,7 +23,7 @@ const sess = {
 
 app.use(cors());
 app.use(session(sess));
-
+// app.use(authenticateToken);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
