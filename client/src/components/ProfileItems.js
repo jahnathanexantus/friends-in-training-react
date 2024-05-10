@@ -12,7 +12,7 @@ const Profile = () => {
   const profileData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/results", {
+      const response = await fetch("/api/gyms", {
         method: "GET",
         headers: {
           "content-Type": "application/json",
