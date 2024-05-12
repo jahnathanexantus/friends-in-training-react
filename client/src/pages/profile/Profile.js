@@ -11,7 +11,7 @@ const Profile = () => {
 
   const individualProfile = async () => {
     try {
-      const response = await fetch("/api/profile/profile", {
+      const response = await fetch("/api/profile", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
