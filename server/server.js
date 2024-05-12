@@ -42,6 +42,10 @@ socketIo.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data);
   });
+
+  socket.on("send_message", (data) => {
+    socket.io(data.room).emit("receive_message", data);
+  });
   socket.on("disconnect", () => {
     console.log("🔥: A user disconnected");
   });
