@@ -38,6 +38,10 @@ const socketIo = require("socket.io")(http, {
 });
 socketIo.on("connection", (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
+
+  socket.on("join_room", (data) => {
+    socket.join(data);
+  });
   socket.on("disconnect", () => {
     console.log("🔥: A user disconnected");
   });
