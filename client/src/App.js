@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import ProfileItem from "../src/components/ProfileItems";
 import NavBar from "./components/NavBar";
+import ChatPage from "./components/ChatPage";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,15 @@ function App() {
             <>
               <NavBar />
               <ProfileItem />
+            </>
+          }
+        />
+        <Route
+          path="/chatpage"
+          element={
+            <>
+              <NavBar />
+              <ChatPage />
             </>
           }
         />
