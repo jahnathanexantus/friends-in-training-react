@@ -12,7 +12,7 @@ const Home = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("/api/users/login", {
+      const response = await fetch("/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },

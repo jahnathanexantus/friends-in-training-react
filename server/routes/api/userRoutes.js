@@ -32,41 +32,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Assuming your User model is imported properly
-
-router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-    if (!userData) {
-      return res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-    if (!validPassword) {
-      return res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-    }
-    const token = jwt.sign({ email: userData.email }, process.env.JWT_SECRET, {
-      expiresIn: "1800s",
-    });
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.email = userData.email;
-      req.session.logged_in = true;
-      res.status(200).json({
-        message: "User Logged in Successfully",
-        token,
-      });
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
