@@ -8,13 +8,13 @@ const jwt = require("jsonwebtoken");
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
-      first_name: req.body.firstName,
-      last_name: req.body.lastName,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
       city: req.body.city,
       state: req.body.state,
-      fitness_level: req.body.fitnessLevel,
+      fitness_level: req.body.fitness_level,
       availability: req.body.availability,
       gender: req.body.gender,
       gym_id: req.body.gymId,
