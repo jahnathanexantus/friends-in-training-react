@@ -2,12 +2,14 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
+const upload = require("../../utils/multer");
 
 // route to create new user
 // need to link this with sign up modal still
-router.post("/", async (req, res) => {
+router.post("/", upload, async (req, res) => {
   try {
     const userData = await User.create({
+      image: req.file.path,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
