@@ -42,20 +42,20 @@ const ProfileItem = () => {
                 alt="placeholder"
                 className="placeHolder-pic"
               />
+              <div className="rela-block user-name" id="user_name">
+                <h3>
+                  {item.first_name} {item.last_name}
+                </h3>
+              </div>
+              <div className="rela-block user-desc" id="user_description">
+                <ul className="profile-list">
+                  <li>
+                    {item.city}, {item.state}
+                  </li>
+                  <li>{item.fitness_level}</li>
+                </ul>
+              </div>
             </Link>
-            <div className="rela-block user-name" id="user_name">
-              <h3>
-                {item.first_name} {item.last_name}
-              </h3>
-            </div>
-            <div className="rela-block user-desc" id="user_description">
-              <ul className="profile-list">
-                <li>
-                  {item.city}, {item.state}
-                </li>
-                <li>{item.fitness_level}</li>
-              </ul>
-            </div>
           </div>
         ))}
       </div>
