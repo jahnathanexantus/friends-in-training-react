@@ -9,13 +9,13 @@ const SignUp = () => {
   const handleShow = () => setShow(true);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
     city: "",
     state: "",
-    fitnessLevel: "",
+    fitness_level: "",
     availability: "",
     gender: "",
     gymId: "",
@@ -33,10 +33,14 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
+      // const token = localStorage.getItem("token");
       const response = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
@@ -79,22 +83,22 @@ const SignUp = () => {
                 <input
                   type="text"
                   className="form-control"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
+                  id="first_name"
+                  name="first_name"
+                  value={formData.first_name}
                   onChange={handleInputChange}
                 />
               </div>
               <div className="col">
-                <label htmlFor="lastName" className="form-label">
+                <label htmlFor="last_name" className="form-label">
                   Last Name
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
+                  id="last_name"
+                  name="last_name"
+                  value={formData.last_name}
                   onChange={handleInputChange}
                 />
               </div>
@@ -203,7 +207,7 @@ const SignUp = () => {
                 id="fitnessLevel"
                 className="form-select"
                 name="fitnessLevel"
-                value={formData.fitnessLevel}
+                value={formData.fitness_level}
                 onChange={handleInputChange}
               >
                 <option value="">Fitness level...</option>

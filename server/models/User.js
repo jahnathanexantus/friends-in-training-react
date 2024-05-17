@@ -10,10 +10,10 @@ class User extends Model {
 
 User.init(
   {
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // image: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,

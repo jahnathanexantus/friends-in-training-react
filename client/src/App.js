@@ -5,6 +5,7 @@ import Profile from "./pages/profile/Profile";
 import ProfileItem from "../src/components/ProfileItems";
 import NavBar from "./components/NavBar";
 import ChatPage from "./components/ChatPage";
+import SelectedProfile from "./components/SelectedProfile";
 import "./App.css";
 
 function App() {
@@ -44,6 +45,15 @@ function App() {
             <>
               <NavBar />
               <ChatPage />
+            </>
+          }
+        />
+        <Route
+          path="/selectedprofile/:id"
+          element={
+            <>
+              <NavBar />
+              <SelectedProfile />
             </>
           }
         />

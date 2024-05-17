@@ -1,66 +1,66 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import placeHold from "../assets/images/userplaceholder.png";
-import "./profileItem.css";
+import "./selectedprofile.css";
 
-const ProfileItem = () => {
-  const [data, setData] = useState([]);
+const SelectedProfile = () => {
+  const { id } = useParams();
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    profileData();
-  }, []);
+    individualProfile();
+  }, [id]);
 
-  const profileData = async () => {
+  const individualProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/results", {
+      const response = await fetch(`/api/results/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
-      setData(result);
+      setUserData(result);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-card">
-        {data.map((item, index) => (
-          <div key={index} className="card-profiles">
-            <Link to={`/selectedprofile/${item.id}`}>
+    <div className="profile-box">
+      <div className="pro-card">
+        {userData && (
+          <div className="card-pro">
+            <a href="#">
               <img
                 src={placeHold}
                 alt="placeholder"
                 className="placeHolder-pic"
               />
-            </Link>
-            <div className="rela-block user-name" id="user_name">
+            </a>
+            <div className="user-label" id="user_name">
               <h3>
-                {item.first_name} {item.last_name}
+                {userData.first_name} {userData.last_name}
               </h3>
             </div>
-            <div className="rela-block user-desc" id="user_description">
-              <ul className="profile-list">
+            <div className="us-description" id="user_description">
+              <ul className="pro-list">
                 <li>
-                  {item.city}, {item.state}
+                  {userData.city}, {userData.state}
                 </li>
-                <li>{item.fitness_level}</li>
+                <li>{userData.fitness_level}</li>
               </ul>
             </div>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
 };
 
-export default ProfileItem;
+export default SelectedProfile;
