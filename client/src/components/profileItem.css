@@ -29,3 +29,15 @@
 .profile-list {
   margin-bottom: 5px;
 }
+.chat-button {
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: auto;
+}
+.chat-button:hover {
+  background-color: #3700b3;
+}

@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import ProfileItem from "../src/components/ProfileItems";
+import ProfileItem from "./components/ProfileItems"; // Ensure this path is correct
 import NavBar from "./components/NavBar";
-import ChatPage from "./components/ChatPage";
+import ChatPage from "./components/ChatPage"; // Ensure this path is correct
 import SelectedProfile from "./components/SelectedProfile";
 import "./App.css";
 
@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route
-          path="/chatpage"
+          path="/chat/:userId"
           element={
             <>
               <NavBar />

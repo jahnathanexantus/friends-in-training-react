@@ -38,7 +38,7 @@ const Profile = () => {
               />
             </a>
             <div className="user-label" id="user_name">
-              <h3>
+              <h3 className="proCard">
                 {userData.first_name} {userData.last_name}
               </h3>
             </div>

@@ -56,6 +56,9 @@ const ProfileItem = () => {
                 </ul>
               </div>
             </Link>
+            <Link to={`/chat/${item.id}`}>
+              <button className="chat-button">Chat</button>
+            </Link>
           </div>
         ))}
       </div>
