@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import placeHold from "../assets/images/userplaceholder.png";
 import "./selectedprofile.css";
 
@@ -56,6 +56,9 @@ const SelectedProfile = () => {
                 <li>{userData.fitness_level}</li>
               </ul>
             </div>
+            <Link to={`/chatpage/${id}`}>
+              <button className="chat-button">Chat</button>
+            </Link>
           </div>
         )}
       </div>

@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import ProfileItem from "./components/ProfileItems"; // Ensure this path is correct
+import ProfileItem from "./components/ProfileItems";
 import NavBar from "./components/NavBar";
-import ChatPage from "./components/ChatPage"; // Ensure this path is correct
+import ChatPage from "./components/ChatPage";
 import SelectedProfile from "./components/SelectedProfile";
 import "./App.css";
 
@@ -54,6 +54,16 @@ function App() {
             <>
               <NavBar />
               <SelectedProfile />
+            </>
+          }
+        />
+        {/* Add the route for the ChatPage component with user ID as a parameter */}
+        <Route
+          path="/chatpage/:userId"
+          element={
+            <>
+              <NavBar />
+              <ChatPage />
             </>
           }
         />
