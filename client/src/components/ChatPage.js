@@ -32,7 +32,7 @@ const ChatPage = () => {
     };
 
     socket.emit("send_message", messageData);
-    setMessages((prevMessages) => [...prevMessages, messageData]);
+    // setMessages((prevMessages) => [...prevMessages, messageData]);
     setMessage("");
   };
 
