@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./uploadpic.css";
 
 const UploadPic = () => {
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    } else {
+      console.error(
+        "UserId is not found in localStorage. Please log in again."
+      );
+    }
+  }, []);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -12,16 +24,29 @@ const UploadPic = () => {
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
-  console.log(file, description);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!userId) {
+      alert("UserId is not found. Please log in again.");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("file", file);
     formData.append("description", description);
-    formData.append("userId", localStorage.getItem("userId")); // Assuming userId is stored in localStorage
-    console.log("this is the form data", formData);
-    console.log(localStorage.getItem("userId"));
+    formData.append("userId", userId);
+
+    console.log("this is the form data before sending:");
+    console.log("File:", {
+      name: file.name,
+      type: file.type,
+      size: file.size,
+    });
+    console.log("Description:", description);
+    console.log("UserId:", userId);
+
     try {
       const token = localStorage.getItem("token");
 
@@ -44,7 +69,7 @@ const UploadPic = () => {
       }
 
       const data = await response.json();
-      console.log(data);
+      console.log("Response from server:", data);
       alert("Picture uploaded successfully!");
     } catch (error) {
       console.error("There was an error uploading the picture!", error);

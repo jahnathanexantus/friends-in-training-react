@@ -22,7 +22,7 @@ const upload = multer({
     }
     cb("Give proper files formate to upload");
   },
-}).single("image");
+}).single("file");
 // if you want to add multiple immages us .array('images', and the number(3))
 
 module.exports = upload;

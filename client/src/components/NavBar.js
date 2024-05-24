@@ -33,6 +33,9 @@ const NavBar = () => {
         <Link to="/profileItem">
           <button className="button">Matches</button>
         </Link>
+        <Link to="/uploadpic">
+          <button className="button">Pictures</button>
+        </Link>
         <button className="button" onClick={handleLogout}>
           Logout
         </button>

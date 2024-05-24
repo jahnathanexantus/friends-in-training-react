@@ -6,6 +6,7 @@ import ProfileItem from "./components/ProfileItems";
 import NavBar from "./components/NavBar";
 import ChatPage from "./components/ChatPage";
 import SelectedProfile from "./components/SelectedProfile";
+import UploadPic from "./components/UploadPic";
 import "./App.css";
 
 function App() {
@@ -27,6 +28,15 @@ function App() {
             <>
               <NavBar />
               <Profile />
+            </>
+          }
+        />
+        <Route
+          path="/uploadpic"
+          element={
+            <>
+              <NavBar />
+              <UploadPic />
             </>
           }
         />

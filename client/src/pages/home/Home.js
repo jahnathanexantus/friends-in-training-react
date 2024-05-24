@@ -21,7 +21,8 @@ const Home = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        alert("You have sucessfully signed in ");
+        localStorage.setItem("userId", data.user.id); // Store userId in localStorage
+        alert("You have successfully signed in");
         window.location.replace("/Profile");
       } else {
         alert("Failed to log in");

@@ -18,6 +18,7 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
     }
+
     const token = jwt.sign({ email: userData.email }, process.env.JWT_SECRET, {
       expiresIn: "1800s",
     });
@@ -29,6 +30,7 @@ router.post("/login", async (req, res) => {
       res.status(200).json({
         message: "User Logged in Successfully",
         token,
+        user: { id: userData.id, email: userData.email },
       });
     });
   } catch (err) {
