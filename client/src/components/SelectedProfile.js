@@ -25,6 +25,7 @@ const SelectedProfile = () => {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
+      console.log("this is the return on the client side", result);
       setUserData(result);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -32,34 +33,53 @@ const SelectedProfile = () => {
   };
 
   return (
-    <div className="profile-box">
-      <div className="pro-card">
+    <div className="selected-profile">
+      <div className="profile-box">
         {userData && (
-          <div className="card-pro">
-            <a href="#">
-              <img
-                src={placeHold}
-                alt="placeholder"
-                className="placeHolder-pic"
-              />
-            </a>
-            <div className="user-label" id="user_name">
-              <h3>
-                {userData.first_name} {userData.last_name}
-              </h3>
+          <>
+            <div className="pictures-column">
+              {userData.pictures && userData.pictures.length > 0 ? (
+                userData.pictures.map((pic) => (
+                  <img
+                    key={pic.id}
+                    src={`/${pic.image}`} // Adjusted to ensure proper path
+                    alt={pic.description}
+                    className="user-pic"
+                  />
+                ))
+              ) : (
+                <p>No pictures available</p>
+              )}
             </div>
-            <div className="us-description" id="user_description">
-              <ul className="pro-list">
-                <li>
-                  {userData.city}, {userData.state}
-                </li>
-                <li>{userData.fitness_level}</li>
-              </ul>
+            <div className="pro-card">
+              <div className="card-pro">
+                <a href="#">
+                  <img
+                    src={placeHold}
+                    alt="placeholder"
+                    className="placeHolder-pic"
+                  />
+                </a>
+                <div className="user-label" id="user_name">
+                  <h3>
+                    {userData.first_name} {userData.last_name}
+                  </h3>
+                </div>
+                <div className="us-description" id="user_description">
+                  <ul className="pro-list">
+                    <li>
+                      {userData.city}, {userData.state}
+                    </li>
+                    <li>{userData.fitness_level}</li>
+                    <li>Gym: {userData.gym.name}</li>
+                  </ul>
+                </div>
+                <Link to={`/chatpage/${id}`}>
+                  <button className="chat-button">Chat</button>
+                </Link>
+              </div>
             </div>
-            <Link to={`/chatpage/${id}`}>
-              <button className="chat-button">Chat</button>
-            </Link>
-          </div>
+          </>
         )}
       </div>
     </div>

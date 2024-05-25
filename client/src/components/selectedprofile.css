@@ -1,31 +1,113 @@
-.profile-container {
+.selected-profile .profile-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; /* Add space between the pictures and the card */
+}
+
+.selected-profile .pictures-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selected-profile .pro-card {
+  width: 80%;
+  max-width: 900px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.selected-profile .card-pro {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.selected-profile .card-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.selected-profile .card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  background-image: url("../assets/images/seamless-dumbbell-pattern.jpg");
-}
-
-.profile-list {
-  list-style: none;
-}
-.card-profiles {
-  text-align: center;
-  height: 400px;
-  width: 400px;
-  border: 1px solid black;
-  margin: 50vh 0;
-  z-index: 1;
-  background-color: #efefef;
-  border-radius: 20px;
-}
-
-.placeHolder-pic {
-  height: 200px;
-  width: 200px;
-}
-.user-desc {
   text-align: center;
 }
-.profile-list {
-  margin-bottom: 5px;
+
+.selected-profile .card-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-profile .placeHolder-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.selected-profile .user-label h3 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.selected-profile .us-description .pro-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-profile .us-description .pro-list li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.selected-profile .chat-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selected-profile .chat-button:hover {
+  background-color: #0056b3;
+}
+
+.selected-profile .user-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .selected-profile .profile-box {
+    flex-direction: column;
+  }
+
+  .selected-profile .pro-card {
+    width: 100%;
+  }
+
+  .selected-profile .user-pic {
+    width: 100px;
+    height: 100px;
+  }
 }
