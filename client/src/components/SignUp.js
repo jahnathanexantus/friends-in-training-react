@@ -71,7 +71,13 @@ const SignUp = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title
+            as="h1"
+            className="w-100 text-center"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            Sign Up
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="container">
@@ -87,6 +93,7 @@ const SignUp = () => {
                   name="first_name"
                   value={formData.first_name}
                   onChange={handleInputChange}
+                  placeholder="first name"
                 />
               </div>
               <div className="col">
@@ -100,6 +107,7 @@ const SignUp = () => {
                   name="last_name"
                   value={formData.last_name}
                   onChange={handleInputChange}
+                  placeholder="last name"
                 />
               </div>
               <div className="col-md-6">
@@ -113,6 +121,7 @@ const SignUp = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  placeholder="Enter your email"
                 />
               </div>
               <div className="col-md-6">
@@ -126,6 +135,7 @@ const SignUp = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
+                  placeholder="Enter your Password"
                 />
               </div>
               <div className="col-md-6">
@@ -139,6 +149,7 @@ const SignUp = () => {
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
+                  placeholder="Enter your city"
                 />
               </div>
               <select
