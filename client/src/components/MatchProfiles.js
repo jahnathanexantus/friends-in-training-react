@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import placeHold from "../assets/images/userplaceholder.png";
-import "./profileItem.css";
+import "./matchProfile.css";
 
-const ProfileItem = () => {
+const MatchProfiles = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ const ProfileItem = () => {
   );
 };
 
-export default ProfileItem;
+export default MatchProfiles;

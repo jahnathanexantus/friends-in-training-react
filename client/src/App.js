@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import LandingPage from "./pages/landingPage/LandingPage";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import ProfileItem from "./components/ProfileItems";
+import MatchProfiles from "./components/MatchProfiles";
 import NavBar from "./components/NavBar";
 import ChatPage from "./components/ChatPage";
 import SelectedProfile from "./components/SelectedProfile";
@@ -18,7 +19,7 @@ function App() {
           element={
             <>
               <NavBar />
-              <Home />
+              <LandingPage />
             </>
           }
         />
@@ -32,6 +33,15 @@ function App() {
           }
         />
         <Route
+          path="/home"
+          element={
+            <>
+              <NavBar />
+              <Home />
+            </>
+          }
+        />
+        <Route
           path="/uploadpic"
           element={
             <>
@@ -41,11 +51,11 @@ function App() {
           }
         />
         <Route
-          path="/profileItem"
+          path="/matchprofiles"
           element={
             <>
               <NavBar />
-              <ProfileItem />
+              <MatchProfiles />
             </>
           }
         />

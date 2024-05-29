@@ -27,10 +27,13 @@ const NavBar = () => {
         <h4 className="name">Friends in training</h4>
       </div>
       <div className="nav-container">
+        <Link to="/home">
+          <button className="button">Home</button>
+        </Link>
         <Link to="/profile">
           <button className="button">Profile</button>
         </Link>
-        <Link to="/profileItem">
+        <Link to="/matchprofiles">
           <button className="button">Matches</button>
         </Link>
         <Link to="/uploadpic">
