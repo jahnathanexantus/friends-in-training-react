@@ -1,7 +1,5 @@
 // socket.js
 const socketIo = require("socket.io");
-const express = require("express");
-const app = express();
 
 const initializeSocket = (http) => {
   const socketIo = require("socket.io")(http, {
