@@ -6,6 +6,7 @@ const cors = require("cors");
 const initializeSocket = require("../server/utils/socket");
 const http = require("http");
 // const authenticateToken = require("../server/utils/jwt");
+const cookieParser = require("cookie-parser");
 const app = express();
 const server = http.createServer(app);
 const io = initializeSocket(server);
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(routes);
+app.use(cookieParser());
 app.use(initializeSocket);
 
 app.get("*", function (req, res) {
