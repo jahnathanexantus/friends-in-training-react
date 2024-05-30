@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
       throw new Error("User ID not found in session");
     }
 
-    console.log("Session User ID:", req.session.user_id);
+    // console.log("Session User ID:", req.session.user_id);
 
     const userData = await User.findByPk(req.session.user_id, {
       include: [{ all: true, nested: true }],
@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    console.log("User data found:", userData);
+    // console.log("User data found:", userData);
 
     // Set a custom cookie
     setCustomCookie(res, "profileVisited", "true");
