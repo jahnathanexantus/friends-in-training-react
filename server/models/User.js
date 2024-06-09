@@ -1,3 +1,4 @@
+// models/User.js
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
@@ -10,10 +11,12 @@ class User extends Model {
 
 User.init(
   {
-    // image: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -34,7 +37,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        min: [8],
+        len: [8], // Corrected validation rule
       },
     },
     gender: {
@@ -49,13 +52,13 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    availability: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    state_id: {
+      // Reference the state ID correctly
+      type: DataTypes.INTEGER,
+      references: {
+        model: "state", // This should match the modelName in State.js
+        key: "id",
+      },
     },
     gym_id: {
       type: DataTypes.INTEGER,
