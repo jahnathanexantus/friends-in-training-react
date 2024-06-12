@@ -1,0 +1,52 @@
+# /docker-compose.yml
+
+version: "3.8"
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_NAME=fit_react_db
+      # - DB_USER=root
+      # - DB_PASSWORD=rootroot
+      - DB_HOST=db
+      - DB_PORT=3306
+      - JWT_SECRET=4c0d608098b78d61cf5654965dab8b53632bf831dc6b43f29289411376ac107b
+      - REFRESH_TOKEN_SECRET=c4a71ea639f6de11f146f21193d91c4518a3c285f1853d44778910d6130a4c03
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: fit_react_db
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: rootroot
+      MYSQL_ROOT_PASSWORD: rootroot
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - app-network
+
+volumes:
+  db-data:
+
+networks:
+  app-network:
