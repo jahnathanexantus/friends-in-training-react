@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 // route to create new user
 // need to link this with sign up modal still
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
       // image: req.file.path,

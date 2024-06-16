@@ -1,5 +1,5 @@
 # Use a Node.js base image for development
-FROM node:16.14.2 as build
+FROM node:19-alpine
 
 # Set the working directory inside the container
 WORKDIR /client
