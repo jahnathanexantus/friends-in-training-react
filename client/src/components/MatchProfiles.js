@@ -13,7 +13,7 @@ const MatchProfiles = () => {
   const profileData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/results/match", {
+      const response = await fetch("http://localhost:3001/api/results/match", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

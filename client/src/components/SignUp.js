@@ -34,7 +34,7 @@ const SignUp = () => {
 
     try {
       // const token = localStorage.getItem("token");
-      const response = await fetch("/api/users", {
+      const response = await fetch("http://localhost:3001/api/users/signup", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

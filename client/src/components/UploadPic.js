@@ -55,7 +55,7 @@ const UploadPic = () => {
         return;
       }
 
-      const response = await fetch("/api/picture/upload", {
+      const response = await fetch("http://localhost:3001/api/picture/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
