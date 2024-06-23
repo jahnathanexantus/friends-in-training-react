@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("../assets/images/seamless-dumbbell-pattern.jpg");
+  background-color: #535255;
+  /* background-image: url("../assets/images/seamless-dumbbell-pattern.jpg"); */
 }
 
 .profile-list {
@@ -10,10 +11,13 @@
 }
 .card-profiles {
   text-align: center;
-  height: 400px;
-  width: 400px;
+  /* height: 400px; */
+  height: 716px;
+  /* width: 400px; */
+  width: 1000px;
   border: 1px solid black;
-  margin: 50vh 0;
+  /* margin: 50vh 0; */
+  margin: 10vh 0;
   z-index: 1;
   background-color: #efefef;
   border-radius: 20px;
