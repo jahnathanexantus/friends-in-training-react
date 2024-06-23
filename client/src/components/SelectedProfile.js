@@ -14,7 +14,7 @@ const SelectedProfile = () => {
   const individualProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3001/api/results/${id}`, {
+      const response = await fetch(`/api/results/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
