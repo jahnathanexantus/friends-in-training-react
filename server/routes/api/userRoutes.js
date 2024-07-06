@@ -3,10 +3,9 @@ const { User } = require("../../models");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
 
-// route to create new user
-// need to link this with sign up modal still
 router.post("/signup", async (req, res) => {
   try {
+    // Create a new user
     const userData = await User.create({
       // image: req.file.path,
       first_name: req.body.first_name,
@@ -21,17 +20,32 @@ router.post("/signup", async (req, res) => {
       gym_id: req.body.gymId,
     });
 
+    // Generate a token
     const token = jwt.sign(
       { userId: userData.id, email: userData.email },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
-    res.status(200).json({ userData, token });
+    // Save session data
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.email = userData.email;
+      req.session.logged_in = true;
+
+      // Send response
+      res.status(200).json({
+        message: "User Logged in Successfully",
+        token,
+        user: { id: userData.id, email: userData.email },
+      });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+module.exports = router;
 
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
