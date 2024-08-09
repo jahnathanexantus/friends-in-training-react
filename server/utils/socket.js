@@ -17,6 +17,7 @@ const initializeSocket = (http) => {
 
     socket.on("send_message", (data) => {
       socketIo.to(data.room).emit("receive_message", data);
+      console.log("message was sent:", data);
     });
 
     socket.on("disconnect", () => {

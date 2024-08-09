@@ -2,6 +2,9 @@ const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 const jwt = require("jsonwebtoken");
+const passport = require("../utils/passPort");
+const setCustomCookie = require("../helpers/setCustomCookie");
+require("dotenv").config();
 
 router.post("/login", async (req, res) => {
   try {
@@ -22,6 +25,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ email: userData.email }, process.env.JWT_SECRET, {
       expiresIn: "1800s",
     });
+    setCustomCookie(res, "profileVisited", "true");
 
     req.session.save(() => {
       req.session.user_id = userData.id;

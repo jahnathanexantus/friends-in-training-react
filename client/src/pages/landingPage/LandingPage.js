@@ -21,7 +21,7 @@ const Home = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", data.user.id); // Store userId in localStorage
+        localStorage.setItem("userId", data.user.id);
         alert("You have successfully signed in");
         window.location.replace("/home");
       } else {
@@ -32,13 +32,13 @@ const Home = () => {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = "/api/auth/google";
+  };
+
   return (
-    <section className="gradient-form ">
-      <img
-        className="background"
-        src={backgroundImage}
-        alt="background-image"
-      />
+    <section className="gradient-form">
+      <img className="background" src={backgroundImage} alt="background" />
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-xl-10">
@@ -50,12 +50,10 @@ const Home = () => {
                       <img id="logo" src={Logo} alt="logo" />
                       <h4 className="mt-1 mb-5 pb-1">Welcome to F.I.T</h4>
                     </div>
-
                     <form onSubmit={loginFormHandler}>
                       <p className="login">
                         Login to find the perfect workout partner
                       </p>
-
                       <div className="form-outline mb-4">
                         <input
                           type="email"
@@ -66,7 +64,6 @@ const Home = () => {
                           onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
-
                       <div className="form-outline mb-4">
                         <input
                           type="password"
@@ -77,7 +74,6 @@ const Home = () => {
                           onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
-
                       <div className="text-center pt-1 mb-5 pb-1">
                         <button
                           className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
@@ -85,17 +81,25 @@ const Home = () => {
                         >
                           Log in
                         </button>
+                        <button
+                          className="btn btn-secondary btn-block fa-lg gradient-custom-2 mb-3"
+                          type="button"
+                          onClick={handleGoogleLogin}
+                        >
+                          Log in with Google
+                        </button>
                       </div>
-
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Don't have an account?</p>
-                        <div className="modal-body">{<SignUp />}</div>
+                        <div className="modal-body">
+                          <SignUp />
+                        </div>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div className=" side-2 col-lg-6 d-flex align-items-center gradient-custom-2">
-                  <div className=" px-3 py-4 p-md-5 mx-md-4">
+                <div className="side-2 col-lg-6 d-flex align-items-center gradient-custom-2">
+                  <div className="px-3 py-4 p-md-5 mx-md-4">
                     <h2 className="mb-0">Friends In Fitness</h2>
                     <h5 className="mb-4">More than just gym partners.</h5>
                     <p className="mb-4">

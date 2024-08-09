@@ -7,6 +7,7 @@ const gymRoutes = require("./gymRoutes");
 const pictureRoutes = require("./pictureRoutes");
 const stateRoutes = require("./stateRoutes");
 const followRoutes = require("./followRoutes");
+const authRoutes = require("./authRoutes");
 
 router.use("/gyms", gymRoutes);
 router.use("/users", userRoutes);
@@ -15,5 +16,6 @@ router.use("/profile", profileRoutes);
 router.use("/picture", pictureRoutes);
 router.use("/state", stateRoutes);
 router.use("/follow", followRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;

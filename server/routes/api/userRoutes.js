@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
+const setCustomCookie = require("../../helpers/setCustomCookie");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -33,6 +34,7 @@ router.post("/signup", async (req, res) => {
       req.session.email = userData.email;
       req.session.logged_in = true;
 
+      setCustomCookie(res, "profileVisited", "true");
       // Send response
       res.status(200).json({
         message: "User Logged in Successfully",

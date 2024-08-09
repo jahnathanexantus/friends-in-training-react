@@ -52,6 +52,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    oauthId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
     state_id: {
       // Reference the state ID correctly
       type: DataTypes.INTEGER,
