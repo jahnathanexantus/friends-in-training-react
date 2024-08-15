@@ -4,6 +4,7 @@ const Gym = require("./Gym");
 const Picture = require("./Picture");
 const State = require("./State");
 const Follow = require("./Follow");
+const Video = require("./Video");
 
 Gym.hasMany(User, {
   foreignKey: "gym_id",
@@ -44,5 +45,12 @@ Follow.belongsTo(User, {
 
 Follow.belongsTo(User, {
   foreignKey: "followingId",
+});
+
+User.hasMany(Video, {
+  foreignKey: "userId",
+});
+Video.belongsTo(User, {
+  foreignKey: "userId",
 });
 module.exports = { User, Gym, Picture, State, Follow };

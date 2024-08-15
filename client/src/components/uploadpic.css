@@ -54,3 +54,10 @@
 #file {
   width: 329px;
 }
+video {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}

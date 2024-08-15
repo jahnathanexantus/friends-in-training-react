@@ -46,17 +46,22 @@ router.get(
 // );
 
 router.get(
-  "/google/callback", // Adjusted path to match common OAuth patterns
+  "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/", // Redirect to home on failure
-    session: false, // Do not use sessions for OAuth
+    failureRedirect: "/",
+    session: false, // No session management
   }),
-  (req, res) => {
+  async (req, res) => {
     try {
       const user = req.user;
 
-      // Redirect to home or a specific page after successful authentication
-      res.redirect(`/welcome?email=${user.email}`);
+      // Generate a JWT token
+      const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
+        expiresIn: "1800s",
+      });
+
+      // Redirect to home with JWT token
+      res.redirect(`/?token=${token}`);
     } catch (error) {
       console.error("Error during authentication", error);
       res.status(500).json({ error: "Internal Server Error" });
