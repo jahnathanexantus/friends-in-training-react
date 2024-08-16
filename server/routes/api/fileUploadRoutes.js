@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const FileUpload = require("../../models/FileUpload");
+const File = require("../../models/File");
 const upload = require("../../utils/multer");
 
 router.post("/upload", upload, async (req, res) => {
   // Use upload.single() if expecting only one file
   try {
-    const pic = await FileUpload.create({
+    const pic = await File.create({
       image: req.file.path,
       description: req.body.description,
       userId: req.body.userId,
