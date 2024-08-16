@@ -1,10 +1,9 @@
 // models/index.js
 const User = require("./User");
 const Gym = require("./Gym");
-const Picture = require("./Picture");
+const FileUpload = require("./FileUpload");
 const State = require("./State");
 const Follow = require("./Follow");
-const Video = require("./Video");
 
 Gym.hasMany(User, {
   foreignKey: "gym_id",
@@ -14,11 +13,11 @@ User.belongsTo(Gym, {
   foreignKey: "gym_id",
 });
 
-User.hasMany(Picture, {
+User.hasMany(FileUpload, {
   foreignKey: "userId",
 });
 
-Picture.belongsTo(User, {
+FileUpload.belongsTo(User, {
   foreignKey: "userId",
 });
 
@@ -47,10 +46,4 @@ Follow.belongsTo(User, {
   foreignKey: "followingId",
 });
 
-User.hasMany(Video, {
-  foreignKey: "userId",
-});
-Video.belongsTo(User, {
-  foreignKey: "userId",
-});
-module.exports = { User, Gym, Picture, State, Follow };
+module.exports = { User, Gym, FileUpload, State, Follow };

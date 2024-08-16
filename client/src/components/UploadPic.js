@@ -55,7 +55,7 @@ const UploadPic = () => {
         return;
       }
 
-      const response = await fetch("/api/picture/upload", {
+      const response = await fetch("/api/uploads/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ const UploadPic = () => {
 
       const data = await response.json();
       console.log("Response from server:", data);
-      alert("Picture uploaded successfully!");
+      alert("File uploaded successfully!");
     } catch (error) {
       console.error("There was an error uploading the picture!", error);
       alert("Failed to upload picture. Please try again. " + error.message);
