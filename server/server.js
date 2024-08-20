@@ -10,7 +10,6 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const server = http.createServer(app);
 const io = initializeSocket(server);
-const passport = require("passport");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -38,8 +37,6 @@ app.use("/videos", express.static(path.join(__dirname, "videos")));
 app.use(routes);
 app.use(cookieParser());
 app.use(initializeSocket);
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.get("*", function (req, res) {
   res.status(404).send("404 - Page not found, please try again.");
