@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import FollowBox from "../../components/FollowBox"; // Adjust path as needed
 import placeHold from "../../assets/images/userplaceholder.png";
 import "./home.css";
 
@@ -33,6 +34,7 @@ const Home = () => {
 
   return (
     <div className="profile-container">
+      <FollowBox /> {/* Include the FollowBox here */}
       <div className="profile-card">
         {data.map((item, index) => (
           <div key={index} className="card-profiles">

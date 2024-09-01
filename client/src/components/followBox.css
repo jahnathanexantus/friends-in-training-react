@@ -1,0 +1,76 @@
+.follow-box {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 250px;
+  min-height: 300px;
+  background-color: #ffffff;
+  border: 3px solid #ddd; /* Thicker border */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.titleBar {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #007bff, #00bfff);
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.titleBar .miniBtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.followers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-followers {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+}
+
+.follower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.follower:hover {
+  transform: scale(1.05);
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  border: 2px solid #007bff;
+}
+
+.follower-name {
+  font-size: 16px;
+  color: #333;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}

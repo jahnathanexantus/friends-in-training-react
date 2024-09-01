@@ -77,16 +77,6 @@ function App() {
             </>
           }
         />
-        {/* Add the route for the ChatPage component with user ID as a parameter */}
-        <Route
-          path="/chatpage/:userId"
-          element={
-            <>
-              <NavBar />
-              <ChatPage />
-            </>
-          }
-        />
       </Routes>
     </BrowserRouter>
   );

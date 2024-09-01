@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import placeHold from "../../assets/images/userplaceholder.png";
 import "./profile.css";
+import FollowBox from "../../components/FollowBox"; // Import FollowBox
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
@@ -27,6 +28,7 @@ const Profile = () => {
 
   return (
     <div className="profile-box">
+      <FollowBox /> {/* Add FollowBox component here */}
       <div className="pro-card">
         {userData && (
           <div className="card-pro">

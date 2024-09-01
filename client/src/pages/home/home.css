@@ -41,3 +41,58 @@
 .chat-button:hover {
   background-color: #3700b3;
 }
+.home-container {
+  position: relative;
+}
+
+.follow-container {
+  position: fixed;
+  top: 220px; /* Adjust this value to move it down */
+  left: 20px; /* Adjust as needed for horizontal positioning */
+  width: 200px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.follow-box {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.follower-name {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.follow-box {
+  position: fixed;
+  top: 264px;
+  left: 10px;
+  width: 600px;
+  min-height: 300px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000;
+}
