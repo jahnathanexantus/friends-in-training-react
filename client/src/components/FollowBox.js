@@ -8,7 +8,7 @@ const FollowBox = () => {
   useEffect(() => {
     const displayFollow = async () => {
       try {
-        const response = await fetch("/api/follow/follow", {
+        const response = await fetch("/api/follow", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

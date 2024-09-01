@@ -64,4 +64,12 @@ router.post("/unfollow", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const followData = await Follow.findAll();
+    res.send(followData);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 module.exports = router;
