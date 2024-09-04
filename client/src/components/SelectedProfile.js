@@ -38,8 +38,8 @@ const SelectedProfile = () => {
         {userData && (
           <>
             <div className="pictures-column">
-              {userData.pictures && userData.pictures.length > 0 ? (
-                userData.pictures.map((pic) => (
+              {userData.files && userData.files.length > 0 ? (
+                userData.files.map((pic) => (
                   <img
                     key={pic.id}
                     src={`/${pic.image}`} // Adjusted to ensure proper path
